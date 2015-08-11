@@ -3,11 +3,11 @@ filetype plugin indent off
 " Start Neobundle Settings.
 "---------------------------
 " bundleで管理するディレクトリを指定
-"set runtimepath+=~/.vim/bundle/neobundle.vim/
-if has('vim_starting')
-  set runtimepath+=~/dotfiles/.vim/bundle/neobundle.vim/
-  call neobundle#rc(expand('~/dotfiles/.vim/bundle/'))
-endif
+set runtimepath+=~/.vim/bundle/neobundle.vim/
+" if has('vim_starting')
+"   set runtimepath+=~/dotfiles/.vim/bundle/neobundle.vim/
+"   call neobundle#rc(expand('~/dotfiles/.vim/bundle/'))
+" endif
  
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
