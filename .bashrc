@@ -12,8 +12,6 @@ case "$(uname)" in
   *) ;; # OSがMac以外ならば何もしない
 esac
 
-alias geeknote="/Users/fuku/.pyenv/versions/2.7.8/bin/python /Users/fuku/.pyenv/versions/2.7.8/lib/python2.7/site-packages/geeknote-0.2a-py2.7.egg/geeknote/geeknote.py"
-
 alias updatedb='sudo /usr/libexec/locate.updatedb'
 
 alias py=python
