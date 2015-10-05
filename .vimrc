@@ -19,8 +19,12 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 "-------------------
 " 自動で括弧を閉じる
 NeoBundle 'Townk/vim-autoclose'
+
 "式の評価
 NeoBundle 'thinca/vim-quickrun'
+
+"構文チェック
+NeoBundle 'scrooloose/syntastic'
 
 " ファイルオープンを便利に
 NeoBundle 'Shougo/unite.vim'
@@ -42,16 +46,37 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
-"Pythonの補完"
-NeoBundleLazy "davidhalter/jedi-vim"
+"Python"
+autocmd FileType python set completeopt-=preview
+"Syntax"
+NeoBundleLazy 'hdima/python-syntax', {
+            \ 'autoload' : {'filetypes' : 'py'}
+            \ }
+let python_highlight_all = 1
+"補完"
+NeoBundleLazy "davidhalter/jedi-vim", {
+            \ 'autoload' : {'filetypes' : 'py'}
+            \ }
 let g:jedi#auto_initialization = 1
 let g:jedi#rename_command = "<leader>R"
-let g:jedi#popup_on_dot = 1
+let g:jedi#show_call_signatures = 0
 
 "CPP関連"
 NeoBundleLazy 'vim-jp/cpp-vim', {
             \ 'autoload' : {'filetypes' : 'cpp'}
             \ }
+
+"Golang"
+NeoBundleLazy 'fatih/vim-go', {
+            \ 'autoload' : {
+                \'filetypes' : 'go',
+                \'commands' : ['GoInstallBinaries','GoUpdateBinaries'],
+                \}
+            \ }
+
+let g:syntastic_mode_map = { 'mode': 'passive',
+    \ 'active_filetypes': ['go'] }
+let g:syntastic_go_checkers = ['go', 'golint']
 
 "HTML"
 NeoBundle 'mattn/emmet-vim'
@@ -74,7 +99,7 @@ filetype plugin indent on
  
 " 未インストールのプラグインがある場合、インストールするかどうかを尋ねてくれるようにする設定
 " 毎回聞かれると邪魔な場合もあるので、設定は任意。
-NeoBundleCheck
+" NeoBundleCheck
  
 "-------------------------
 " End Neobundle Settings.
@@ -83,15 +108,32 @@ NeoBundleCheck
 "-------------------------
 "基本設定
 "-------------------------
+"Disable Swap, Backup
+set nowritebackup
+set nobackup
+set noswapfile
+
 "編集モード時にコロンとセミコロンを逆に
 nnoremap ; :
 nnoremap : ;
 
-inoremap jk <esc>
-inoremap kj <esc>
+"Escapeのマッピング
+inoremap <silent> jk <esc>
+inoremap <silent> kj <esc>
+
+"表示上の行移動と実際の行移動を入れ替え
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+
+nnoremap ZQ <Nop>
 
 "ステータスラインを表示
 set laststatus=2
+
+"クリップボード
+set clipboard=unnamed,autoselect
 
 "検索時のハイライトなし
 set nohlsearch

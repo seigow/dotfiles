@@ -114,3 +114,6 @@ function is_ssh_running() { [ ! -z "$SSH_CONECTION" ]; }
 # settings for prompt
 PROMPT='[%n@%m]$ '
 RPROMPT='[%d]'
+
+export GOPATH=$HOME/.go
+alias cheat=$GOPATH/bin/cheat

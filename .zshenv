@@ -22,8 +22,6 @@ case "$(uname)" in
   *) ;; # OSがMac以外ならば何もしない
 esac
 
-test -r ~/.bashrc && . ~/.bashrc
-
-export GOROOT=/usr/local/opt/go/libexec
-export GOPATH=$HOME
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH=${HOME}/.local/bin:$PATH
+export PATH=${HOME}/.local/bin/stack-0.1.5.0-x86_64-osx:$PATH
+export GOPATH=$HOME/.go
