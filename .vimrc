@@ -1,109 +1,49 @@
-filetype plugin indent off
-"---------------------------
-" Start Neobundle Settings.
-"---------------------------
-" bundleで管理するディレクトリを指定
-" set runtimepath+=~/.vim/bundle/neobundle.vim/
-if has('vim_starting')
-  set runtimepath+=~/dotfiles/.vim/bundle/neobundle.vim/
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
 endif
- 
+
 " Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
- 
-" neobundle自体をneobundleで管理
-NeoBundleFetch 'Shougo/neobundle.vim'
+set runtimepath^=/Users/fuku/.vim/repos/github.com/Shougo/dein.vim
+let s:dein_dir = expand('~/.cache/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
-"-------------------
-" 追加のプラグイン
-"-------------------
-" 自動で括弧を閉じる
-NeoBundle 'Townk/vim-autoclose'
+" Required:
+call dein#begin(expand('/Users/fuku/.vim/'))
 
-"式の評価
-NeoBundle 'thinca/vim-quickrun'
+let s:toml      = '~/.vim/rc/dein.toml'
+let s:lazy_toml = '~/.vim/rc/dein_lazy.toml'
+if dein#load_cache([expand('<sfile>'), s:toml, s:lazy_toml])
+  call dein#load_toml(s:toml,      {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
+  call dein#save_cache()
+endif
 
-"構文チェック
-NeoBundle 'scrooloose/syntastic'
+" Let dein manage dein
+" Required:
+"call dein#add('Shougo/dein.vim')
 
-" ファイルオープンを便利に
-NeoBundle 'Shougo/unite.vim'
-" Unite.vimで最近使ったファイルを表示できるようにする
-NeoBundle 'Shougo/neomru.vim'
- 
-"\cでコメントアウトと解除
-NeoBundle 'tyru/caw.vim.git'
-nmap <Leader>c <Plug>(caw:i:toggle)
-vmap <Leader>c <Plug>(caw:i:toggle)
+" Add or remove your plugins here:
+"call dein#add('Shougo/neosnippet.vim')
+"call dein#add('Shougo/neosnippet-snippets')
 
-"補完の強化"
-NeoBundle "Shougo/neocomplete.vim"
-let g:neocomplete#enable_at_startup=1
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+" You can specify revision/branch/tag.
+" call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
-"Python"
-autocmd FileType python set completeopt-=preview
-"Syntax"
-NeoBundleLazy 'hdima/python-syntax', {
-            \ 'autoload' : {'filetypes' : 'py'}
-            \ }
-let python_highlight_all = 1
-"補完"
-NeoBundleLazy "davidhalter/jedi-vim", {
-            \ 'autoload' : {'filetypes' : 'py'}
-            \ }
-let g:jedi#auto_initialization = 1
-let g:jedi#rename_command = "<leader>R"
-let g:jedi#show_call_signatures = 0
+" Required:
+call dein#end()
 
-"CPP関連"
-NeoBundleLazy 'vim-jp/cpp-vim', {
-            \ 'autoload' : {'filetypes' : 'cpp'}
-            \ }
-
-"Golang"
-NeoBundleLazy 'fatih/vim-go', {
-            \ 'autoload' : {
-                \'filetypes' : 'go',
-                \'commands' : ['GoInstallBinaries','GoUpdateBinaries'],
-                \}
-            \ }
-
-let g:syntastic_mode_map = { 'mode': 'passive',
-    \ 'active_filetypes': ['go'] }
-let g:syntastic_go_checkers = ['go', 'golint']
-
-"HTML"
-NeoBundle 'mattn/emmet-vim'
-"JavaScript"
-NeoBundleLazy 'jiangmiao/simple-javascript-indenter',{
-  \ 'autoload' : {'filetypes' : 'js'}
-  \ }
-  " この設定入れるとshiftwidthを1にしてインデントしてくれる
-  let g:SimpleJsIndenter_BriefMode = 2
-  " この設定入れるとswitchのインデントがいくらかマシに
-  let g:SimpleJsIndenter_CaseIndentLevel = -1
-NeoBundleLazy 'jelera/vim-javascript-syntax',{
-  \ 'autoload' : {'filetypes': 'js'}
-  \ }
-"-------------------
-call neobundle#end()
- 
 " Required:
 filetype plugin indent on
- 
-" 未インストールのプラグインがある場合、インストールするかどうかを尋ねてくれるようにする設定
-" 毎回聞かれると邪魔な場合もあるので、設定は任意。
-" NeoBundleCheck
- 
-"-------------------------
-" End Neobundle Settings.
-"-------------------------
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
+
+"End dein Scripts-------------------------
+
+
 
 "-------------------------
 "基本設定
@@ -112,6 +52,14 @@ filetype plugin indent on
 set nowritebackup
 set nobackup
 set noswapfile
+
+" 'tyru/caw.vim.git'
+" Toggle comment out by '\c'
+nmap <Leader>c <Plug>(caw:i:toggle)
+vmap <Leader>c <Plug>(caw:i:toggle)
+
+" Shougo/neocomplete.vim
+let g:neocomplete#enable_at_startup=1
 
 "編集モード時にコロンとセミコロンを逆に
 nnoremap ; :
@@ -147,6 +95,7 @@ let g:hybrid_use_iTerm_colors = 1
 colorscheme hybrid
 syntax on
 highlight Normal ctermbg=black ctermfg=grey
+highlight Number ctermfg=134
 highlight StatusLine term=bold,reverse cterm=reverse ctermfg=gray ctermbg=blue
 "highlight CursorLine term=none cterm=none ctermfg=none ctermbg=darkgray
 

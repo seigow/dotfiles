@@ -1,0 +1,16 @@
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+on_i = 1
+
+[[plugins]]
+repo = 'hdima/python-syntax'
+on_ft = ['py']
+
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+on_ft = ['py']
+
+[[plugins]]
+repo = 'vim-jp/cpp-vim'
+on_ft = ['cpp']
+

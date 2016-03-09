@@ -117,3 +117,8 @@ RPROMPT='[%d]'
 
 export GOPATH=$HOME/.go
 alias cheat=$GOPATH/bin/cheat
+
+alias ls="ls -G"
+
+export JUPYTER_URL_PATH="http://localhost:8888/"
+alias jd='PWDPATH=`pwd`;open $JUPYTER_URL_PATH"tree${PWDPATH/#$HOME}"'
