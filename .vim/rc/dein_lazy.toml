@@ -14,3 +14,7 @@ on_ft = ['py']
 repo = 'vim-jp/cpp-vim'
 on_ft = ['cpp']
 
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['html']
+

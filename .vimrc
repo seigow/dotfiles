@@ -5,23 +5,21 @@ endif
 
 " Required:
 set runtimepath^=/Users/fuku/.vim/repos/github.com/Shougo/dein.vim
+let g:rc_dir = expand('~/.vim')
 let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
-" Required:
-call dein#begin(expand('/Users/fuku/.vim/'))
-
 let s:toml      = '~/.vim/rc/dein.toml'
 let s:lazy_toml = '~/.vim/rc/dein_lazy.toml'
-if dein#load_cache([expand('<sfile>'), s:toml, s:lazy_toml])
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
+  let s:dein_tom = g:rc_dir . '/dein.toml'
+  let s:dein_tom = g:rc_dir . '/dein_lazy.toml'
   call dein#load_toml(s:toml,      {'lazy': 0})
   call dein#load_toml(s:lazy_toml, {'lazy': 1})
-  call dein#save_cache()
+  call dein#end()
+  call dein#save_state()
 endif
-
-" Let dein manage dein
-" Required:
-"call dein#add('Shougo/dein.vim')
 
 " Add or remove your plugins here:
 "call dein#add('Shougo/neosnippet.vim')
@@ -29,9 +27,6 @@ endif
 
 " You can specify revision/branch/tag.
 " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
-
-" Required:
-call dein#end()
 
 " Required:
 filetype plugin indent on
@@ -52,11 +47,6 @@ endif
 set nowritebackup
 set nobackup
 set noswapfile
-
-" 'tyru/caw.vim.git'
-" Toggle comment out by '\c'
-nmap <Leader>c <Plug>(caw:i:toggle)
-vmap <Leader>c <Plug>(caw:i:toggle)
 
 " Shougo/neocomplete.vim
 let g:neocomplete#enable_at_startup=1
@@ -146,7 +136,7 @@ set autoindent
 "バックスペースに対して行頭と行末を連結"
 set backspace=indent,eol,start
 
-"色の設定 "
+" 色の設定 "
 "-----------------------------
 " 全角スペースの表示
 "-----------------------------

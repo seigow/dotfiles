@@ -9,6 +9,10 @@ repo = 'Shougo/unite.vim'
 
 [[plugins]]
 repo = 'tyru/caw.vim.git'
+hook_add = '''
+  nmap <Leader>c <Plug>(caw:hatpos:toggle)
+  vmap <Leader>c <Plug>(caw:hatpos:toggle)
+'''
 
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'

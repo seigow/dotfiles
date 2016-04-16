@@ -24,4 +24,5 @@ esac
 
 export PATH=${HOME}/.local/bin:$PATH
 export PATH=${HOME}/.local/bin/stack-0.1.5.0-x86_64-osx:$PATH
+export PATH=/usr/bin/pbcopy:/usr/bin/pbpaste:$PATH
 export GOPATH=$HOME/.go

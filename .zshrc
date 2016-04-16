@@ -122,3 +122,8 @@ alias ls="ls -G"
 
 export JUPYTER_URL_PATH="http://localhost:8888/"
 alias jd='PWDPATH=`pwd`;open $JUPYTER_URL_PATH"tree${PWDPATH/#$HOME}"'
+
+export XDG_CONFIG_HOME=$HOME/dotfiles
+
+# added by travis gem
+[ -f /Users/fuku/.travis/travis.sh ] && source /Users/fuku/.travis/travis.sh

@@ -15,3 +15,6 @@ esac
 alias updatedb='sudo /usr/libexec/locate.updatedb'
 
 alias py=python
+
+# added by travis gem
+[ -f /Users/fuku/.travis/travis.sh ] && source /Users/fuku/.travis/travis.sh
