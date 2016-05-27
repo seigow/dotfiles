@@ -18,3 +18,7 @@ on_ft = ['cpp']
 repo = 'mattn/emmet-vim'
 on_ft = ['html']
 
+[[plugins]]
+repo = 'derekwyatt/vim-scala'
+on_ft = ['scala']
+

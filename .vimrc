@@ -83,6 +83,7 @@ set nohlsearch
 set cursorline
 
 "色関係
+colorscheme hybrid
 autocmd ColorScheme * highlight LineNr ctermfg=242
 syntax on
 highlight Normal ctermbg=black ctermfg=grey

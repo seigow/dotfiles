@@ -1,16 +1,16 @@
-eval "$(pyenv init -)"
+# eval "$(pyenv init -)"
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/version:$PATH"
-if [ -d "${PYENV_ROOT}" ]; then
-    export PATH=${PYENV_ROOT}/bin:$PATH
-    eval "$(pyenv init -)"
-fi
-
-if [ -d ${HOME/.pyenv} ]; then
-    export PATH="${HOME}/.pyenv/shims:$PATH"
-    eval "$(pyenv init -)"
-fi
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/version:$PATH"
+# if [ -d "${PYENV_ROOT}" ]; then
+#     export PATH=${PYENV_ROOT}/bin:$PATH
+#     eval "$(pyenv init -)"
+# fi
+#
+# if [ -d ${HOME/.pyenv} ]; then
+#     export PATH="${HOME}/.pyenv/shims:$PATH"
+#     eval "$(pyenv init -)"
+# fi
 
 case "$(uname)" in
   Darwin) # OSがMacならば
