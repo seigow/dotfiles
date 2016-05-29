@@ -22,3 +22,14 @@ on_ft = ['html']
 repo = 'derekwyatt/vim-scala'
 on_ft = ['scala']
 
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = ['typescript']
+
+[[plugins]]
+repo = 'jason0x43/vim-js-indent'
+on_ft = ['typescript', 'javascript','html']
+
+[[plugins]]
+repo = 'Quramy/tsuquyomi'
+on_ft = ['typescript']

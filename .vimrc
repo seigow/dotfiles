@@ -3,6 +3,7 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
+
 let g:rc_dir = expand('~/.vim/rc')
 let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
@@ -42,17 +43,15 @@ endif
 "End dein Scripts-------------------------
 
 
-
 "-------------------------
 "基本設定
 "-------------------------
+let g:syntastic_mode_map = {'mode': 'active', 'passive_filetypes': ['typescript']}
+
 "Disable Swap, Backup
 set nowritebackup
 set nobackup
 set noswapfile
-
-" Shougo/neocomplete.vim
-let g:neocomplete#enable_at_startup=1
 
 "編集モード時にコロンとセミコロンを逆に
 nnoremap ; :

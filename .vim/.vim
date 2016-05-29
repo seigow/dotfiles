@@ -1,0 +1,1 @@
+/Users/fuku/dotfiles/.vim
