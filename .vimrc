@@ -58,8 +58,8 @@ nnoremap ; :
 nnoremap : ;
 
 "Escapeのマッピング
-inoremap <silent> jk <esc>
-inoremap <silent> kj <esc>
+inoremap <silent> jj <esc>
+inoremap <silent> kk <esc>
 
 "表示上の行移動と実際の行移動を入れ替え
 nnoremap j gj
