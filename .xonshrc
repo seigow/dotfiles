@@ -18,12 +18,12 @@ aliases["ll"] = "ls -l"
 def g_change(account):
     account = account[0]
     if account=='fuku': account='seigo_fukushima'
-    git config --global user.name f"{account}"
+    git config --local user.name f"{account}"
     if account=='hoge':
-        git config --global user.email hoge@company.jp
+        git config --local user.email hoge@company.jp
         print(f'change:{account}')
     elif account=='seigow':
-        git config --global user.email seigow.fukushima@gmail.com
+        git config --local user.email seigow.fukushima@gmail.com
         print(f'change:{account}')
     else:
         print(f'check account name:{account}')
