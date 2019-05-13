@@ -1,3 +1,9 @@
+$INDENT = "    "
+$UPDATE_COMPLETIONS_ON_KEYPRESS = True
+$XONSH_SHOW_TRACEBACK = True
+def get_git_user():
+    return '{BLUE}' + $(git config user.name).strip() + ' {INTENSE_GREEN}{hostname} {WHITE}({YELLOW}"{cwd}"{WHITE}) {INTENSE_RED}$ '
+$PROMPT = get_git_user
 $PTK_STYLE_OVERRIDES={
  "completion-menu": "bg:ansiblack ansiwhite",
  "completion-menu.completion": "bg:ansiblack",
