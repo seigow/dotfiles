@@ -1,0 +1,65 @@
+# -------------------------
+# Global Git Ignore File
+# -------------------------
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Editor and IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.vim/
+
+# Temporary Files
+*.tmp
+*.temp
+*.cache
+
+# Build and Dependencies
+node_modules/
+dist/
+build/
+target/
+*.o
+*.so
+*.dylib
+*.dll
+
+# Package Managers
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+Pipfile.lock
+poetry.lock
+
+# Environment and Config
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.envrc
+
+# Claude Code Files
+claude_cache/
+
+# SSH and Security
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
+*.pem
+*.key
+*.crt
