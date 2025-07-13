@@ -7,3 +7,7 @@ ln -s $(pwd)/zshrc ~/.zshrc
 # Setup zsh as default shell
 echo "Setting up zsh as default shell..."
 sh $(pwd)/scripts/zsh-setup.sh
+
+# Setup Claude Code global configuration
+echo "Setting up Claude Code configuration..."
+sh $(pwd)/scripts/claude-setup.sh
