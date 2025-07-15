@@ -14,6 +14,7 @@ setopt HIST_REDUCE_BLANKS
 # Completion Settings
 autoload -Uz compinit
 compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 setopt AUTO_CD
 setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
@@ -44,6 +45,11 @@ alias ls='ls --color=auto'
 
 # Editor Settings
 export EDITOR=vim
+
+# NVM Settings
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Path Settings
 export PATH="$HOME/bin:$PATH"
