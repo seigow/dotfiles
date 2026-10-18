@@ -53,3 +53,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # Path Settings
 export PATH="$HOME/bin:$PATH"
+[ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
